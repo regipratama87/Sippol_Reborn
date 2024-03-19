@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="container-fluid d-flex justify-content-center align-items-center">
     <div class="col-md-6">
         <div class="my-5 bg-white rounded border p-4">
-            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <form id="user-login" method="post">
                 <h1 class="text-center font-weight-bold text-dark">Welcome to <?php echo $title ?>!</h1><br>
                 <div class="text-center">
                 <img src="img/logo-login.png" alt="" class="img-fluid">
