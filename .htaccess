@@ -1,14 +1,24 @@
-RewriteEngine On
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -Indexes
+    </IfModule>
 
-Options -Indexes
+    RewriteEngine On
+    DirectorySlash off
+    RewriteBase /production/sippol.kedirikab.go.id/
 
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^([^\.]+)/?$ $1.php [L]
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([^\.]+)/?$ $1.php [L]
 
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.*)$ $1.php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}.php -f
 
-ErrorDocument 403 /403.php
+    RewriteRule ^(.*)$ $1.php
 
-ErrorDocument 404 /404.php
+    RewriteRule ^administrator/?$ admin/login.php [L,NC]
+    RewriteRule ^administrator/?(.*)$ admin/$1 [L]
+    RewriteRule ^/?admin/?$ 403.php [L,NC]
+
+    ErrorDocument 403 /production/sippol.kedirikab.go.id/403.php
+    ErrorDocument 404 /production/sippol.kedirikab.go.id/404.php
+</IfModule>

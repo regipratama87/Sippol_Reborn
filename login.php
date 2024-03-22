@@ -77,20 +77,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="text-center">
                 <img src="img/logo-login.png" alt="" class="img-fluid">
                 </div>
-                <p class="lead text-center mt-3">Login to access your account.</p>
+                <p class="lead text-center mt-3"><h5 class="text-center">Login to access your account</h5></p>
                 <?php
                 if (isset($error)) {
-                    echo '<div class="alert alert-danger border-0" role="alert"><b>Error!! </b>' . $error . '</div>';
+                    echo '<div class="alert alert-danger border-0" role="alert"><b>Gagal!</b><br>' . $error . '</div>';
                 }
                 ?>
 
                 <div class="mb-3">
                     <label for="username" class="form-label font-weight-bold"> Username <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username..." required>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username" required autofocus>
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label font-weight-bold"> Password <span class="text-danger">*</span></label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password..." required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block rounded-pill">Login</button>
             </form>

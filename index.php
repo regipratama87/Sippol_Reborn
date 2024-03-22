@@ -23,7 +23,7 @@ if ($result) {
 }
 
 if (!isset($_SESSION['login_user'])) {
-    header("Location: login.php");
+    header("Location: login");
     exit();
 }
 

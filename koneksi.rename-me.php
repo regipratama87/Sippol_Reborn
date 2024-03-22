@@ -2,7 +2,7 @@
 $host = "localhost";
 $username = "root";
 $password = "";
-$database = "sippol_presensi"; 
+$database = "sippol_reborn_kedirikab";
 
 $koneksi = mysqli_connect($host, $username, $password, $database);
 
