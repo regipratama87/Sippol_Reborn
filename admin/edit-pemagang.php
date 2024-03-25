@@ -109,11 +109,11 @@ mysqli_close($koneksi);
                             </div>
                             <div class="form-group">
                                 <label>Mulai Magang:</label>
-                                <input class="form-control" type="date" name="mulai_magang" value="<?php echo $mulai_magang; ?>">
+                                <input class="form-control" type="datetime-local" name="mulai_magang" value="<?php echo $mulai_magang; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Akhir Magang:</label>
-                                <input class="form-control" type="date" name="akhir_magang" value="<?php echo $akhir_magang; ?>">
+                                <input class="form-control" type="datetime-local" name="akhir_magang" value="<?php echo $akhir_magang; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Status:</label><br>
