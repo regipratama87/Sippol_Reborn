@@ -48,6 +48,19 @@ if (!isset($_SESSION['login_user'])) {
                     <a href="index.php" class="btn btn-sm btn-danger shadow-sm mb-3">Kembali</a>
                     <div class="table-responsive">
                         <table id="dataTable" class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>NPM</th>
+                                <th>Instansi</th>
+                                <th>Tanggal</th>
+                                <th>Status</th>
+                                <th>Deskripsi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
                         <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
@@ -65,8 +78,6 @@ $result_data = mysqli_query($koneksi, $query_data);
 if (!$result_data || mysqli_num_rows($result_data) === 0) {
 }
 
-echo '<thead><tr><th>No</th><th>Nama</th><th>NPM</th><th>Instansi</th><th>Tanggal</th><th>Status</th><th>Deskripsi</th></tr></thead>';
-echo '<tbody>';
 $no = 1;
 while ($row_data = mysqli_fetch_assoc($result_data)) {
     echo '<tr>';
@@ -86,7 +97,6 @@ while ($row_data = mysqli_fetch_assoc($result_data)) {
     echo '</tr>';
     $no++;
 }
-echo '</tbody>';
 mysqli_close($koneksi);
 ?>
 
@@ -95,11 +105,11 @@ mysqli_close($koneksi);
                         <tr>
                             <td>-</td>
                             <td>-</td>
-                            <td>No</td>
-                            <td>No</td>
-                            <td>No</td>
                             <td>-</td>
-                            <td>No</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
                         </tr>
                 </tfoot>
                 </table>
@@ -161,25 +171,26 @@ mysqli_close($koneksi);
 			var column = this;
 			var select;
 			
-			if (column.index() == 3 || column.index() == 5) {
-			select = $('<select><option value=""></option></select>')
-			    .appendTo( $(column.footer()).empty() )
-			    .on( 'change', function () {
-			        var val = $.fn.dataTable.util.escapeRegex(
-			            $(this).val()
-			        );
+			// if () {
+			// select = $('<select><option value=""></option></select>')
+			//     .appendTo( $(column.footer()).empty() )
+			//     .on( 'change', function () {
+			//         var val = $.fn.dataTable.util.escapeRegex(
+			//             $(this).val()
+			//         );
 			
-			        column
-			            .search( val ? '^'+val+'$' : '', true, false )
-			            .draw();
-			    } );
+			//         column
+			//             .search( val ? '^'+val+'$' : '', true, false )
+			//             .draw();
+			//     } );
 			
-			column.data().unique().sort().each( function ( d, j ) {
-			    select.append( '<option value="'+d+'">'+d+'</option>' )
-			} );
+			// column.data().unique().sort().each( function ( d, j ) {
+			//     select.append( '<option value="'+d+'">'+d+'</option>' )
+			// } );
 
             
-			} else if (column.index() == 2 || column.index() == 4 || column.index() == 6) {
+			// } 
+             if ( column.index() == 4 || column.index() == 5 || column.index() == 6) {
 			$('<input type="text" placeholder="Search"/>')
 			    .appendTo($(column.footer()).empty())
 			    .on('keyup change', function () {
