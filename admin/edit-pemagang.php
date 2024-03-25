@@ -118,10 +118,10 @@ mysqli_close($koneksi);
                             <div class="form-group">
                                 <label>Status:</label><br>
                                 <label class="radio-inline">
-                                <input type="radio" name="status" value="1" <?php if ($status == 1) echo "checked"; ?>> Aktif
+                                <input type="radio" name="status" value="1" <?php if ($status == 1) echo "checked"; ?>> Enabled
                                 </label>
                                 <label class="radio-inline ml-3">
-                                <input type="radio" name="status" value="0" <?php if ($status == 0) echo "checked"; ?>> Nonaktif
+                                <input type="radio" name="status" value="0" <?php if ($status == 0) echo "checked"; ?>> Disabled
                                 </label>
                             </div>
                             <div>
