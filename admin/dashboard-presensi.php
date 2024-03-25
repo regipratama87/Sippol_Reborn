@@ -121,10 +121,13 @@
 <?php
     require('../koneksi.php');
     
-    $query = "SELECT COUNT(DISTINCT id_data) AS total_presensi, DATE(data_tanggal) AS tanggal 
-            FROM presensi 
-            WHERE YEAR(data_tanggal) = YEAR(CURDATE()) AND MONTH(data_tanggal) = MONTH(CURDATE())  
-            GROUP BY DAY(data_tanggal)";
+    $query = "SELECT COUNT(DISTINCT id_data) AS total_presensi, 
+    DATE_FORMAT(data_tanggal, '%Y-%m-%d') AS tanggal 
+FROM presensi 
+WHERE YEAR(data_tanggal) = YEAR(CURDATE()) 
+AND MONTH(data_tanggal) = MONTH(CURDATE())  
+GROUP BY DATE_FORMAT(data_tanggal, '%Y-%m-%d')";
+
     
     $result = mysqli_query($koneksi, $query);
     
@@ -173,7 +176,12 @@
     </script>
     <?php
         require('../koneksi.php');
-        $query = "SELECT COUNT(DISTINCT id_data) AS total_presensi, DATE(data_tanggal) AS tanggal FROM presensi WHERE YEAR(data_tanggal) = YEAR(CURDATE())  GROUP BY MONTH(data_tanggal)";
+        $query = "SELECT COUNT(DISTINCT id_data) AS total_presensi, 
+        DATE_FORMAT(data_tanggal, '%Y-%m-%d') AS tanggal 
+ FROM presensi 
+ WHERE YEAR(data_tanggal) = YEAR(CURDATE())  
+ GROUP BY DATE_FORMAT(data_tanggal, '%Y-%m')
+ ";
         $result = mysqli_query($koneksi, $query);
         
         $presensi_data = array();
