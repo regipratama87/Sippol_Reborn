@@ -32,7 +32,7 @@ if (mysqli_num_rows($result) == 1) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Konfigurasi - <?php echo $title ?></title>
+    <title>Profil - <?php echo $title ?></title>
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -48,21 +48,39 @@ if (mysqli_num_rows($result) == 1) {
                         <h2 class="h3 mb-3 text-gray-800 font-weight-bold">Ubah Profil</h2>
                         <?php include('template-alert.php')?>
                         <form method="POST" action="handler/handler-edit-profil.php">
-                            <div class="form-group">
-                                <label for="nama">Nama:</label>
-                                <input class="form-control" type="text" id="nama" name="nama" value="<?php echo $nama; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="username">Username:</label>
-                                <input class="form-control" type="text" id="username" name="username" value="<?php echo $uname; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Password:</label>
+                        <div class="form-group">
+                            <label for="nama">Nama:</label>
+                            <input class="form-control" type="text" id="nama" name="nama" value="<?php echo $nama; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input class="form-control" type="text" id="username" name="username" value="<?php echo $uname; ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <div class="input-group">
                                 <input class="form-control" type="password" id="password" name="password" placeholder="Isi untuk mengubah password">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn">Show</button>
+                                </div>
                             </div>
-                            <input type="submit" class="btn btn-sm bg-primary shadow text-white" value="Simpan Perubahan">
-                            <a href="index.php" class="btn btn-sm btn-danger shadow-sm" >Kembali</a>
-                        </form>
+                        </div>
+                        <input type="submit" class="btn btn-sm bg-primary shadow text-white" value="Simpan Perubahan">
+                        <a href="index.php" class="btn btn-sm btn-danger shadow-sm">Kembali</a>
+                    </form>
+                    <script>
+                    const passwordInput = document.getElementById('password');
+                    const showPasswordBtn = document.getElementById('showPasswordBtn');
+                    showPasswordBtn.addEventListener('click', function() {
+                        if (passwordInput.type === 'password') {
+                            passwordInput.type = 'text';
+                            showPasswordBtn.textContent = 'Hide';
+                        } else {
+                            passwordInput.type = 'password';
+                            showPasswordBtn.textContent = 'Show';
+                        }
+                    });
+                </script>
                     </div>
                 </div>
             </div>
