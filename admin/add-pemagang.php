@@ -107,11 +107,11 @@
 								</div>
 								<div class="form-group">
 									<label>Mulai Magang:</label>
-									<input class="form-control" required type="date" name="mulai_magang">
+									<input class="form-control" required type="datetime-local" name="mulai_magang">
 								</div>
 								<div class="form-group">
 									<label>Akhir Magang:</label>
-									<input class="form-control" required type="date" name="akhir_magang">
+									<input class="form-control" required type="datetime-local" name="akhir_magang">
 								</div>
 								<div class="form-group">
 									<label>Status:</label>
