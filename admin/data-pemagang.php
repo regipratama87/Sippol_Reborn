@@ -81,9 +81,9 @@
 											        echo "<td>" . $row["akhir_magang"]. "</td>";
 											        echo "<td>";
 											        if ($row['status'] == 0) {
-											            echo "<span class='badge badge-danger'>Nonaktif</span>";
+											            echo "<span class='badge badge-danger'>Disabled</span>";
 											        } elseif ($row['status'] == 1) {
-											            echo "<span class='badge badge-success'>Aktif</span>";
+											            echo "<span class='badge badge-success'>Enabled</span>";
 											        }
 											        echo "</td>";
 											        echo "<td class='d-inline-flex'>";
