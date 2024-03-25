@@ -79,7 +79,7 @@
 									<div class="col-12 col-lg-6 col-md-6 col-sm-12">
 										<div class="form-group">
 											<label for="data_tanggal">Tanggal :</label>
-											<input class="form-control" type="date" id="data_tanggal" name="data_tanggal" required>
+											<input class="form-control" type="datetime-local" id="data_tanggal" name="data_tanggal" required>
 										</div>
 									</div>
 									<div class="col-12 col-lg-6 col-md-6 col-sm-12">
