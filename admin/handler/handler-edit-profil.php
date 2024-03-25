@@ -12,11 +12,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
     
-    // Hash the password
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    // Check if password is not empty
+    if (!empty($password)) {
+        // Hash the password
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Perform update query
-    $query = "UPDATE admin SET nama = '$nama', username = '$username', password = '$hashed_password' ";
+        // Perform update query with password
+        $query = "UPDATE admin SET nama = '$nama', username = '$username', password = '$hashed_password' ";
+    } else {
+        // Perform update query without password
+        $query = "UPDATE admin SET nama = '$nama', username = '$username' ";
+    }
+    
     $result = mysqli_query($koneksi, $query);
     
     // Check if the query was successful
