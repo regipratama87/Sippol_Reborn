@@ -43,7 +43,7 @@
 												<option value="0">--Pilih ID user--</option>
 												<?php
 													require('../koneksi.php');
-													$sql = "SELECT id_user, nama FROM user";
+													$sql = "SELECT id_user, nama FROM user WHERE status = 1";
 													$result = $koneksi->query($sql);
 													if ($result->num_rows > 0) {
 													    while ($row = $result->fetch_assoc()) {
