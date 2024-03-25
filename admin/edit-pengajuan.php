@@ -123,7 +123,15 @@
 								</div>
 								<div class="form-group">
 									<label for="tahun">Tahun:</label>
-									<input type="text" id="tahun" name="tahun" class="form-control" value="<?php echo $tahun; ?>">
+									<select id="tahun" name="tahun" class="form-control">
+										<?php
+										$current_year = date("Y");
+										for ($i = $current_year; $i >= $current_year - 10; $i--) {
+											$selected = ($tahun == $i) ? 'selected' : '';
+											echo "<option value='$i' $selected>$i</option>";
+										}
+										?>
+									</select>
 								</div>
 								<div class="form-group">
 									<label for="keterangan">Keterangan:</label>
