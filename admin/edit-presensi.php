@@ -77,7 +77,7 @@
 								</div>
 								<div class="form-group">
 									<label>Tanggal:</label>
-									<input type="date" class="form-control" name="data_tanggal" value="<?php echo date('Y-m-d', strtotime($data_tanggal)); ?>">
+									<input type="datetime-local" class="form-control" name="data_tanggal" value="<?php echo date('Y-m-d\TH:i', strtotime($data_tanggal)); ?>">
 								</div>
 								<div class="form-group">
 									<label>Status:</label>
