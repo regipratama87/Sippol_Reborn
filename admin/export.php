@@ -121,14 +121,14 @@
 							var currentDate = new Date();
 							var currentYear = currentDate.getFullYear();
 							
-							for (var i = currentYear; i >= currentYear - 10; i--) {
+							for (var i = currentYear; i >= currentYear - 4; i--) {
 							    var option = document.createElement('option');
 							    option.text = i;
 							    option.value = i;
 							    yearDropdown.add(option);
 							}
 							
-							var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+							var monthNames = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
 							for (var j = 0; j < 12; j++) {
 							    var option = document.createElement('option');
 							    option.text = monthNames[j];
