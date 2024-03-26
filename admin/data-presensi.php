@@ -59,7 +59,7 @@
 											<th>Tanggal</th>
 											<th>Status</th>
 											<th>Deskripsi</th>
-											<th>Aksi</th>
+											<th data-orderable="false">Action</th>
 										</tr>
 									</thead>
 									<tbody>

@@ -59,7 +59,7 @@
 											<th>Mulai</th>
 											<th>Selesai</th>
 											<th>Status</th>
-											<th>Aksi</th>
+											<th data-orderable="false">Action</th>
 										</tr>
 									</thead>
 									<tbody>

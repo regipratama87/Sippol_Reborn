@@ -54,7 +54,7 @@
 												<th>No</th>
 												<th>Instansi</th>
 												<th>Alamat</th>
-												<th>Action</th>
+												<th data-orderable="false">Action</th>
 											</tr>
 										</thead>
 										<tbody>

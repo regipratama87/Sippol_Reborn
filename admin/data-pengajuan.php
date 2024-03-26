@@ -95,7 +95,7 @@
 												<th>Tahun</th>
 												<th>Keterangan</th>
 												<th>Tanggal</th>
-												<th>Aksi</th>
+												<th data-orderable="false">Action</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -244,13 +244,14 @@
 		</script>
 		<script>
 			$(document).ready(function() {
-			$('#dataTable').DataTable({
+			$('#dataTable').DataTable({	
+				"ordering": false,
 			    initComplete: function () {
 			        this.api().columns().every( function () {
 			            var column = this;
 			            var select;
 			
-			            if (column.index() == 1) {
+			            if (column.index() == 4||  column.index() == 1) {
 			                select = $('<select><option value=""></option></select>')
 			                    .appendTo( $(column.footer()).empty() )
 			                    .on( 'change', function () {
@@ -266,7 +267,7 @@
 			                column.data().unique().sort().each( function ( d, j ) {
 			                    select.append( '<option value="'+d+'">'+d+'</option>' )
 			                } );
-			            } else if (column.index() == 1 || column.index() == 4|| column.index() == 5 || column.index() == 6) {
+			            } else if (column.index() == 1 || column.index() == 5 || column.index() == 6) {
 			                $('<input type="text" placeholder="Search"/>')
 			                    .appendTo($(column.footer()).empty())
 			                    .on('keyup change', function () {
