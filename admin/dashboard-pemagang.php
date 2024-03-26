@@ -242,7 +242,7 @@
         <?php
                             require('../koneksi.php');
                             $query = "SELECT COUNT(DISTINCT id_user) AS total_presensi, 
-                            DATE_FORMAT(data_tanggal, '%Y-%m-%d') AS tanggal 
+                            DATE_FORMAT(data_tanggal, '%Y-%m') AS tanggal 
                      FROM presensi 
                      WHERE YEAR(data_tanggal) = YEAR(CURDATE())  
                      GROUP BY DATE_FORMAT(data_tanggal, '%Y-%m')";
