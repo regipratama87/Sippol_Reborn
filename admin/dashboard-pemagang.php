@@ -1,31 +1,83 @@
 <div class="row">
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-primary  h-100 py-2">
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Jumlah Total</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">
-                            <?php
-                                                    require('../koneksi.php');
-                                                    $query = "SELECT COUNT(DISTINCT  id_user) AS total_user FROM user";
-                                                    $result = mysqli_query($koneksi, $query);
-                                                    $row = mysqli_fetch_assoc($result);
-                                                    echo "<p class='card-text'>" . $row['total_user'] . " Pemagang</p>";
-                                                    mysqli_close($koneksi);
-                                                ?>
-                        </div>
+<div class="col-xl-4 col-md-6 mb-4">
+    <div class="card border-left-primary h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                        Jumlah Total</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <?php
+                        require('../koneksi.php');
+                        $query = "SELECT COUNT(DISTINCT id_user) AS total_user FROM user";
+                        $result = mysqli_query($koneksi, $query);
+                        $row = mysqli_fetch_assoc($result);
+                        echo "<p class='card-text'>" . $row['total_user'] . " Pemagang</p>";
+                        mysqli_close($koneksi);
+                        ?>
                     </div>
-                    <div class="col-auto">
-                        <i class="fas fa-user-circle fa-2x text-gray-300"></i>
-                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-user-circle fa-2x text-gray-300"></i>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-<div class="col-xl-3 col-md-6 mb-4">
+<div class="col-xl-4 col-md-6 mb-4">
+    <div class="card border-left-success h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        Sedang Magang</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <?php
+                        require('../koneksi.php');
+                        $query = "SELECT COUNT(*) AS sedang_magang FROM user WHERE status = 1";
+                        $result = mysqli_query($koneksi, $query);
+                        $row = mysqli_fetch_assoc($result);
+                        echo "<p class='card-text'>" . $row['sedang_magang'] . " Pemagang</p>";
+                        mysqli_close($koneksi);
+                        ?>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-user-circle fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-4 col-md-6 mb-4">
+    <div class="card border-left-info h-100 py-2">
+        <div class="card-body">
+            <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
+                        Selesai Magang</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">
+                        <?php
+                        require('../koneksi.php');
+                        $query = "SELECT COUNT(*) AS selesai_magang FROM user WHERE status = 0";
+                        $result = mysqli_query($koneksi, $query);
+                        $row = mysqli_fetch_assoc($result);
+                        echo "<p class='card-text'>" . $row['selesai_magang'] . " Pemagang</p>";
+                        mysqli_close($koneksi);
+                        ?>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <i class="fas fa-user-circle fa-2x text-gray-300"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-4 col-md-6 mb-4">
     <div class="card border-left-danger  h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -56,7 +108,7 @@
     </div>
 </div>
 
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-xl-4 col-md-6 mb-4">
         <div class="card border-left-warning  h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -92,7 +144,7 @@
         </div>
     </div>
 
-<div class="col-xl-3 col-md-6 mb-4">
+<div class="col-xl-4 col-md-6 mb-4">
     <div class="card border-left-success  h-100 py-2">
         <div class="card-body">
             <div class="row no-gutters align-items-center">
