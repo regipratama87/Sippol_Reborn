@@ -352,4 +352,40 @@ mysqli_close($koneksi);
                 Chart.defaults.global.defaultFontFamily='Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';Chart.defaults.global.defaultFontColor='#858796';function number_format(number,decimals,dec_point,thousands_sep){number=(number+'').replace(',', '').replace(' ', '');var n=!isFinite(+number)?0:+number,prec=!isFinite(+decimals)?0:Math.abs(decimals),sep=(typeof thousands_sep==='undefined')?',':thousands_sep,dec=(typeof dec_point==='undefined')?'.':dec_point,s='',toFixedFix=function(n,prec){var k=Math.pow(10,prec);return''+Math.round(n*k)/k;};s=(prec?toFixedFix(n,prec):''+Math.round(n)).split('.');if(s[0].length>3){s[0]=s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);}if((s[1]||'').length<prec){s[1]=s[1]||'';s[1]+=new Array(prec-s[1].length+1).join('0');}return s.join(dec);}var maxT=<?php echo $max_presensi;?>;var presensiData=<?php echo $presensi_data_json?>;var labels=[];var dataPresensi=[];presensiData.forEach(function(item){labels.push(item.data_tanggal);dataPresensi.push(item.total_presensi);});console.log(maxT);console.log(presensiData);var ctx=document.getElementById("myAreaChart");var myLineChart=new Chart(ctx,{type:'line',data:{labels:["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],datasets:[{label:"Jumlah",lineTension:0,backgroundColor:"rgba(78, 115, 223, 0.05)",borderColor:"rgba(78, 115, 223, 1)",pointRadius:1,pointBackgroundColor:"rgba(78, 115, 223, 1)",pointBorderColor:"rgba(78, 115, 223, 1)",pointHoverRadius:3,pointHoverBackgroundColor:"rgba(78, 115, 223, 1)",pointHoverBorderColor:"rgba(78, 115, 223, 1)",pointHitRadius:10,pointBorderWidth:4,data:presensiData,}],},options:{maintainAspectRatio:false,layout:{padding:{left:10,right:25,top:25,bottom:0}},scales:{xAxes:[{time:{unit:'date'},gridLines:{display:true,drawBorder:false},ticks:{maxTicksLimit:12}}],yAxes:[{ticks:{maxTicksLimit:maxT,padding:10,callback:function(value,index,values){return''+number_format(value);}},gridLines:{color:"rgb(234, 236, 244)",zeroLineColor:"rgb(234, 236, 244)",drawBorder:false,borderDash:[10],zeroLineBorderDash:[20]}}],},legend:{display:true},tooltips:{backgroundColor:"rgb(255,255,255)",bodyFontColor:"#858796",titleMarginBottom:10,titleFontColor:'#6e707e',titleFontSize:14,borderColor:'#dddfeb',borderWidth:1,xPadding:15,yPadding:15,displayColors:false,intersect:false,mode:'index',caretPadding:10,callbacks:{label:function(tooltipItem,chart){var datasetLabel=chart.datasets[tooltipItem.datasetIndex].label||'';return datasetLabel+': '+number_format(tooltipItem.yLabel)+' Pemagang';}}}}});
 
             </script>
+   <?php
+require('../koneksi.php');
+
+$current_year = date('Y');
+$years = range($current_year, $current_year - 4);
+$pemagang_tahunan = array_fill_keys($years, 0);
+$query = "SELECT COUNT(*) AS total_pemagang, YEAR(mulai_magang) AS tahun_mulai_magang 
+          FROM user 
+          GROUP BY YEAR(mulai_magang)";
+$result = mysqli_query($koneksi, $query);
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $tahun_mulai_magang = $row['tahun_mulai_magang'];
+    $pemagang_tahunan[$tahun_mulai_magang] = $row['total_pemagang'];
+}
+
+$pemagang_tahunan_json = json_encode(array_values($pemagang_tahunan));
+
+mysqli_close($koneksi);
+?>
+<div class="col-12">
+    <div class="card  mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-danger">Diagram Total</h6>
+        </div>
+        <div class="card-body">
+            <div class="chart-area">
+                <canvas id="diagramSemuaPemagang"></canvas>
+            </div>
+        </div>
     </div>
+</div>
+<script>
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';Chart.defaults.global.defaultFontColor = '#858796';var pemagangData = <?php echo $pemagang_tahunan_json; ?>.reverse();var labelsTahun = <?php echo json_encode(array_keys($pemagang_tahunan)); ?>.reverse();var ctx = document.getElementById("diagramSemuaPemagang");var myLineChart = new Chart(ctx,{type:'line',data:{labels:labelsTahun,datasets:[{label:"Jumlah Pemagang",lineTension:0,backgroundColor:"rgba(78, 115, 223, 0.05)",borderColor:"#e74a3b",pointRadius:3,pointBackgroundColor:"#e74a3b",pointBorderColor:"#e74a3b",pointHoverRadius:5,pointHoverBackgroundColor:"#e74a3b",pointHoverBorderColor:"#e74a3b",pointHitRadius:10,pointBorderWidth:2,data:Object.values(pemagangData),}],},options:{maintainAspectRatio:false,layout:{padding:{left:10,right:25,top:25,bottom:0}},scales:{xAxes:[{gridLines:{display:false}}],yAxes:[{ticks:{beginAtZero:true}}],},legend:{display:true},tooltips:{backgroundColor:"rgb(255,255,255)",bodyFontColor:"#858796",titleMarginBottom:10,titleFontColor:'#6e707e',titleFontSize:14,borderColor:'#dddfeb',borderWidth:1,xPadding:15,yPadding:15,displayColors:false,intersect:false,mode:'index',caretPadding:10,callbacks:{label:function(tooltipItem,chart){var datasetLabel=chart.datasets[tooltipItem.datasetIndex].label||'';return datasetLabel+': '+tooltipItem.yLabel+' Pemagang';}}}}});
+
+</script>
+</div>
