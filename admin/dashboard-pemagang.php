@@ -138,9 +138,11 @@
                         require('../koneksi.php');
                         $query = "SELECT COUNT(*) AS total_user_belum_presensi 
           FROM user 
-          WHERE id_user NOT IN (SELECT DISTINCT id_user 
+          WHERE status = 1 
+            AND id_user NOT IN (SELECT DISTINCT id_user 
                                 FROM presensi 
                                 WHERE DATE(data_tanggal) = CURDATE())";
+
 
                         $result = mysqli_query($koneksi, $query);
                         $row = mysqli_fetch_assoc($result);
