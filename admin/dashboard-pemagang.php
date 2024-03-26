@@ -132,11 +132,16 @@
             <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">
-                        Belum Presensi</div>
+                        Belum Presensi (Hari ini)</div>
                     <div class="h5 mb-0 font-weight-bold text-gray-800">
                         <?php
                         require('../koneksi.php');
-                        $query = "SELECT COUNT(*) AS total_user_belum_presensi FROM user WHERE id_user NOT IN (SELECT DISTINCT id_user FROM presensi)";
+                        $query = "SELECT COUNT(*) AS total_user_belum_presensi 
+          FROM user 
+          WHERE id_user NOT IN (SELECT DISTINCT id_user 
+                                FROM presensi 
+                                WHERE DATE(data_tanggal) = CURDATE())";
+
                         $result = mysqli_query($koneksi, $query);
                         $row = mysqli_fetch_assoc($result);
                         echo "<p class='card-text'>" . $row['total_user_belum_presensi'] . " Pemagang</p>";
@@ -157,11 +162,14 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                            Sudah Presensi</div>
+                            Sudah Presensi (Hari ini)</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                             <?php
                                                     require('../koneksi.php');
-                                                    $query = "SELECT COUNT(DISTINCT  id_user) AS total_user FROM presensi";
+                                                    $query = "SELECT COUNT(DISTINCT id_user) AS total_user 
+          FROM presensi 
+          WHERE DATE(data_tanggal) = CURDATE()";
+
                                                     $result = mysqli_query($koneksi, $query);
                                                     $row = mysqli_fetch_assoc($result);
                                                     echo "<p class='card-text'>" . $row['total_user'] . " Pemagang</p>";
