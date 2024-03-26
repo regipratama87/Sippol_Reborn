@@ -77,8 +77,8 @@
 											        echo "<td>" . $row["nama"]. "</td>";
 											        echo "<td>" . $row["npm"]. "</td>";
 											        echo "<td>" . $row["asal"]. "</td>";
-											        echo "<td>" . $row["mulai_magang"]. "</td>";
-											        echo "<td>" . $row["akhir_magang"]. "</td>";
+											        echo "<td>" . date('d/m/Y H:i:s', strtotime($row["mulai_magang"])) . "</td>";
+													echo "<td>" . date('d/m/Y H:i:s', strtotime($row["akhir_magang"])) . "</td>";
 											        echo "<td>";
 											        if ($row['status'] == 0) {
 											            echo "<span class='badge badge-danger'>Disabled</span>";
