@@ -79,22 +79,30 @@ if (mysqli_num_rows($result) == 1) {
                     <div class="my-5 bg-white rounded  border p-4">
                 <h2 class="h3 mb-3 text-gray-800 font-weight-bold">Ubah Profil</h2>
                 <?php include('template-alert.php')?>
-                    <form method="POST" action="handler-edit-profil.php">
-                        <div class="form-group">
+                <form method="POST" action="handler-edit-profil.php">
+                    <div class="form-group">
                         <label for="nama">Nama:</label>
                         <input class="form-control" type="text" id="nama" name="nama" required value="<?php echo $nama; ?>">
-                        </div>
-                        <div class="form-group">
+                    </div>
+                    <div class="form-group">
                         <label for="npm">NPM:</label>
                         <input class="form-control" type="text" id="npm" name="npm" readonly value="<?php echo $npm; ?>">
-                        </div>
-                        <div class="form-group">
-                        <label for="asal">Instansi:</label>
-                        <input class="form-control" type="text" id="id_instansi"  value="<?php echo $nama_instansi; ?>" name="id_instansi" readonly>
                     </div>
-                        <input type="submit" class="btn btn-sm bg-primary shadow text-white" value="Simpan Perubahan">
-                        <a href="index.php" class="btn btn-sm btn-danger shadow-sm" >Kembali</a>
-                    </form>
+                    <div class="form-group">
+                        <label for="asal">Instansi:</label>
+                        <input class="form-control" type="text" id="id_instansi" value="<?php echo $nama_instansi; ?>" name="id_instansi" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password Baru:</label>
+                        <input class="form-control" type="password" id="password" name="password" placeholder="Isi jika ingin mengubah password...">
+                    </div>
+                    <div class="form-group">
+                        <label for="konfirmasi_password">Konfirmasi Password Baru:</label>
+                        <input class="form-control" type="password" id="konfirmasi_password" name="konfirmasi_password" placeholder="Harap isi konfirmasi password..">
+                    </div>
+                    <input type="submit" class="btn btn-sm bg-primary shadow text-white" value="Simpan Perubahan">
+                    <a href="index.php" class="btn btn-sm btn-danger shadow-sm" >Kembali</a>
+                </form>
                 </div>
             </div>
                         </div>
