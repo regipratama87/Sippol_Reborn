@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body class="">
         <div class="container-fluid">
             <div class="row justify-content-center">
-                <div class="col-xl-10 col-lg-12 col-md-9">
+                <div class="col-md-6">
                     <div class="card o-hidden border-0 shadow-lg my-5 rounded">
                         <div class="card-body p-0">
                             <div class="row">
@@ -78,21 +78,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="text-center">
                                             <h1 class="h4 text-gray-900 mb-4"><b>Administrator</b><br> </h1>
                                             <img src="../img/logo-login.png" class="img-fluid" alt="">
-                                            <p class="lead mt-3"><h5>Login to access <?php echo $title ?>  Administrator Dashboard</h5></p>
+                                            <p class="lead mt-3">Login to access <?php echo $title ?>  Administrator Dashboard.</p>
                                             <?php
                 if (isset($error)) {
-                    echo '<div class="alert alert-danger border-0 text-left" role="alert"><b>Gagal!</b><br>' . $error . '</div>';
+                    echo '<div class="alert alert-danger border-0 text-left" role="alert"><b>Error!! </b>' . $error . '</div>';
                 }
                 ?>
                                         </div>
                                         <form class="user" method="POST">
                                             <div class="form-group">
                     <label for="username" class="form-label font-weight-bold"> Username <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="username" id="username" placeholder="Username Admin" required autofocus>
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter username...">
                                             </div>
                                             <div class="form-group">
                     <label for="Password" class="form-label font-weight-bold"> Password <span class="text-danger">*</span></label>
-                                                <input type="password" class="form-control" name="password" placeholder="Password Admin" required>
+                                                <input type="password" class="form-control" name="password" placeholder="Enter password...">
                                             </div>
                                             <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block rounded-pill">
