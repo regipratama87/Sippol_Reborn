@@ -109,14 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <footer class="sticky-footer bg-white border-top">
                 <div class="container my-auto">
                     <div class="text-center">
-                        <span>&copy; <?php
-                            require('koneksi.php');
-                            $query = "SELECT title FROM configs";
-                            $result = mysqli_query($koneksi, $query);
-                            $row = mysqli_fetch_assoc($result);
-                            echo $row['title'];
-                            mysqli_close($koneksi);
-                            ?> 2024</span>
+                        <span>&copy; Dinas Komunikasi dan Informatika Kabupaten Kediri <br> 2024</span>
                     </div>
                 </div>
             </footer>

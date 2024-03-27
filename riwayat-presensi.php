@@ -51,7 +51,7 @@ if (!isset($_SESSION['login_user'])) {
                         <table id="dataTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>No</th>
+                                <th data-orderable="false">No</th>
                                 <th>Nama</th>
                                 <th>NPM</th>
                                 <th>Instansi</th>
@@ -118,18 +118,10 @@ mysqli_close($koneksi);
                 </div>
             </div>
                 </div>
-            <footer class="sticky-footer bg-white border-top">
+                <footer class="sticky-footer bg-white border-top">
                 <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy;
-                            <?php
-                            require('koneksi.php');
-                            $query = "SELECT title FROM configs";
-                            $result = mysqli_query($koneksi, $query);
-                            $row = mysqli_fetch_assoc($result);
-                            echo $row['title'];
-                            mysqli_close($koneksi);
-                            ?> 2024</span>
+                    <div class="text-center">
+                        <span>&copy; Dinas Komunikasi dan Informatika Kabupaten Kediri <br> 2024</span>
                     </div>
                 </div>
             </footer>
