@@ -245,7 +245,7 @@
 		<script>
 			$(document).ready(function() {
 				$('#dataTable').DataTable({	
-					order: [],
+					order: [6,"desc"],
 					initComplete: function () {
 			        this.api().columns().every( function () {
 			            var column = this;

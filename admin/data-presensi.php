@@ -52,7 +52,7 @@
 								<table id="table-presensi" class="table table-striped">
 									<thead>
 										<tr>
-											<th data-orderable="false">ID</th>
+											<th data-orderable="false">#</th>
 											<th>Nama</th>
 											<th>NPM</th>
 											<th>Asal</th>

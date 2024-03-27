@@ -51,7 +51,7 @@
 								<table id="userTable" class="table table-striped">
 									<thead>
 										<tr>
-											<th data-orderable="false">ID</th>
+											<th>ID</th>
 											<th>Username</th>
 											<th>Nama</th>
 											<th>NPM</th>
@@ -186,7 +186,7 @@
 		<script>
 			$(document).ready(function() {
 			$('#userTable').DataTable({
-				order : [],
+				order : [0, "desc"],
 			initComplete: function () {
 			   this.api().columns().every( function () {
 			       var column = this;
