@@ -48,10 +48,10 @@
 							</div>
 							<?php include('template-alert.php')?>
 							<div class="table-responsive my-3">
-								<table id="userTable" class="table table-striped table-bordered table-hover">
+								<table id="userTable" class="table table-striped">
 									<thead>
 										<tr>
-											<th>ID</th>
+											<th data-orderable="false">ID</th>
 											<th>Username</th>
 											<th>Nama</th>
 											<th>NPM</th>
@@ -186,6 +186,7 @@
 		<script>
 			$(document).ready(function() {
 			$('#userTable').DataTable({
+				order : [],
 			initComplete: function () {
 			   this.api().columns().every( function () {
 			       var column = this;

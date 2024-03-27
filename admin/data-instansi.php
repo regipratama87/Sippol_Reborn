@@ -48,10 +48,10 @@
 								<!-- <div class=" mb-5"> -->
 								<?php include('template-alert.php') ?>
 								<div class="table-responsive">
-									<table id="dataTable" class="table table-striped table-bordered">
+									<table id="dataTable" class="table table-striped">
 										<thead>
 											<tr>
-												<th>No</th>
+												<th data-orderable="false">ID</th>
 												<th>Instansi</th>
 												<th>Alamat</th>
 												<th data-orderable="false">Action</th>
@@ -77,7 +77,7 @@
 												$no = 1;
 												while ($row = mysqli_fetch_assoc($result)) {
 												echo "<tr>";
-												echo "<td>" . $no++ . "</td>";
+												echo "<td>" . $row['id_instansi'] . "</td>";
 												echo "<td>" . $row['nama'] . "</td>";
 												echo "<td>" . $row['alamat'] . "</td>";
 												echo "<td class='d-inline-flex'><button class='btn btn-success btn-sm mr-2' onclick='showModal(\"{$row['nama']}\")'>Detail</button>";
@@ -204,6 +204,7 @@
 		<script>
 			$(document).ready(function() {
 			$('#dataTable').DataTable({
+				order : [],
 			initComplete: function () {
 			this.api().columns().every( function () {
 			var column = this;

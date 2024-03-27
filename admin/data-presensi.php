@@ -49,10 +49,10 @@
 							</div>
 							<?php include('template-alert.php')?>
 							<div class="table-responsive">
-								<table id="table-presensi" class="table table-striped table-bordered">
+								<table id="table-presensi" class="table table-striped">
 									<thead>
 										<tr>
-											<th>No</th>
+											<th data-orderable="false">ID</th>
 											<th>Nama</th>
 											<th>NPM</th>
 											<th>Asal</th>

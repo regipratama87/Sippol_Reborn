@@ -85,13 +85,13 @@
 								</div>
 								<?php include('template-alert.php') ?>
 								<div class="table-responsive">
-									<table id="dataTable" class="table table-striped table-bordered display">
+									<table id="dataTable" class="table table-striped display">
 										<thead>
 											<tr>
-												<th>No</th>
+												<th data-orderable="false">No</th>
 												<th>Instansi</th>
-												<th>Pengajuan</th>
-												<th>Balasan</th>
+												<th data-orderable="false">Pengajuan</th>
+												<th data-orderable="false">Balasan</th>
 												<th>Tahun</th>
 												<th>Keterangan</th>
 												<th>Tanggal</th>
@@ -116,7 +116,7 @@
 												    $no = 1;
 												    while ($row = mysqli_fetch_assoc($result)) {
 												        echo "<tr>";
-												        echo "<td>" . $no++ . "</td>";
+												        echo "<td>" .$row['id_pengajuan']. "</td>";
 												        echo "<td>" . $row['nama_instansi'] . "</td>";
 												
 												        echo "<td><a href='#' onclick=\"openPdfModal('" . $row['srt_pengajuan'] . "')\"> Lihat Berkas</a></td>";
@@ -127,7 +127,7 @@
 												        echo "<td>" . $row['timestamp'] . "</td>";
 												
 												        // Tambahkan tombol edit dan delete dengan mengirimkan id pengajuan
-												        echo "<td class='d-inline-flex'><a href='edit-pengajuan.php?id=" . $row['id_pengajuan'] . "' class='btn btn-primary btn-sm mr-1'><i class='fas fa-pencil-alt'></i></a> ";
+												        echo "<td class='d-inline-flex' style='width: max-content; height: max-content'><a href='edit-pengajuan.php?id=" . $row['id_pengajuan'] . "' class='btn btn-primary btn-sm mr-1'><i class='fas fa-pencil-alt'></i></a> ";
 												        echo "<a href='javascript:void(0)' data-id=" . $row['id_pengajuan'] . " class='btn btn-danger btn-sm deleteBtn'><i class='fas fa-trash'></i></a></td>";
 												
 												        echo "</tr>";
@@ -244,9 +244,9 @@
 		</script>
 		<script>
 			$(document).ready(function() {
-			$('#dataTable').DataTable({	
-				"ordering": false,
-			    initComplete: function () {
+				$('#dataTable').DataTable({	
+					order: [],
+					initComplete: function () {
 			        this.api().columns().every( function () {
 			            var column = this;
 			            var select;
