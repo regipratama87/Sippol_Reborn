@@ -109,11 +109,11 @@ mysqli_close($koneksi);
                             </div>
                             <div class="form-group">
                                 <label>Mulai Magang:</label>
-                                <input class="form-control" type="datetime-local" name="mulai_magang" value="<?php echo $mulai_magang; ?>">
+                                <input class="form-control" type="datetime-local"name="mulai_magang" value="<?php echo $mulai_magang; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Akhir Magang:</label>
-                                <input class="form-control" type="datetime-local" name="akhir_magang" value="<?php echo $akhir_magang; ?>">
+                                <input class="form-control" type="datetime-local"name="akhir_magang" value="<?php echo $akhir_magang; ?>">
                             </div>
                             <div class="form-group">
                                 <label>Status:</label><br>
@@ -132,20 +132,7 @@ mysqli_close($koneksi);
                     </div>
                 </div>
             </div>
-            <footer class="sticky-footer bg-white border-top">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; <?php
-                            require('../koneksi.php');
-                            $query = "SELECT title FROM configs";
-                            $result = mysqli_query($koneksi, $query);
-                            $row = mysqli_fetch_assoc($result);
-                            echo $row['title'];
-                            mysqli_close($koneksi);
-                            ?> 2024</span>
-                    </div>
-                </div>
-            </footer>
+            <?php include('footer.php')?>
         </div>
     </div>
     <a class="scroll-to-top rounded" href="#page-top">

@@ -82,13 +82,8 @@ date_default_timezone_set('Asia/Jakarta');
 				</script>
 				</div>
 			</div>
-			<footer class="sticky-footer bg-white border-top mt-5">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; <?php echo $title ?> 2024</span>
-					</div>
-				</div>
-			</footer>
+			<!-- Footer -->
+			<?php include('footer.php')?>
 		</div>
 		<a class="scroll-to-top rounded" href="#page-top">
 		<i class="fas fa-angle-up"></i>

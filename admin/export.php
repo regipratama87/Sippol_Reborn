@@ -93,7 +93,7 @@
 						<table id="dataTable" class="table table-striped table-bordered mt-3" style="width:100%">
 							<thead>
 								<tr>
-									<th>ID</th>
+									<th data-orderable="false">ID</th>
 									<th>Nama</th>
 									<th>NPM</th>
 									<th>Instansi</th>
@@ -139,20 +139,7 @@
 					</div>
 					</div>
 				</div>
-				<footer class="sticky-footer bg-white border-top">
-					<div class="container my-auto">
-						<div class="copyright text-center my-auto">
-							<span>Copyright &copy; <?php
-								require('../koneksi.php');
-								$query = "SELECT title FROM configs";
-								$result = mysqli_query($koneksi, $query);
-								$row = mysqli_fetch_assoc($result);
-								echo $row['title'];
-								mysqli_close($koneksi);
-								?> 2024</span>
-						</div>
-					</div>
-				</footer>
+				<?php include('footer.php')?>
 			</div>
 		</div>
 		<a class="scroll-to-top rounded" href="#page-top">

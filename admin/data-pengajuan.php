@@ -88,7 +88,7 @@
 									<table id="dataTable" class="table table-striped display">
 										<thead>
 											<tr>
-												<th data-orderable="false">No</th>
+												<th>No</th>
 												<th>Instansi</th>
 												<th data-orderable="false">Pengajuan</th>
 												<th data-orderable="false">Balasan</th>
@@ -171,11 +171,7 @@
 						</div>
 					</div>
 				</div>
-				<footer class="sticky-footer bg-white border-top">
-					<div class="container my-auto">
-						<div class="copyright text-center my-auto"> <span>Copyright &copy; <?php echo $title ?> 2024</span> </div>
-					</div>
-				</footer>
+				<?php include('footer.php')?>
 			</div>
 		</div>
 		<a class="scroll-to-top rounded" href="#page-top"> <i class="fas fa-angle-up"></i> </a>

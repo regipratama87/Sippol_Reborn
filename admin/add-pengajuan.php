@@ -93,21 +93,7 @@
 						</div>
 					</div>
 				</div>
-				<footer class="sticky-footer bg-white border-top">
-					<div class="container my-auto">
-						<div class="copyright text-center my-auto">
-							<span>Copyright &copy; 
-							<?php
-								require('../koneksi.php');
-								$query = "SELECT title FROM configs";
-								$result = mysqli_query($koneksi, $query);
-								$row = mysqli_fetch_assoc($result);
-								echo $row['title'];
-								mysqli_close($koneksi);
-								?> 2024</span>
-						</div>
-					</div>
-				</footer>
+				<?php include('footer.php')?>
 			</div>
 		</div>
 		<a class="scroll-to-top rounded" href="#page-top">
@@ -131,7 +117,7 @@
 			</div>
 		</div>
 		<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-		<script src="../js/sb-admin-2.min.js"></script>]
+		<script src="../js/sb-admin-2.min.js"></script>
 		<script>
 			$(document).ready(function(){
 			    var formCounter = 1; // Inisialisasi counter formulir
