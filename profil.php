@@ -106,14 +106,7 @@ if (mysqli_num_rows($result) == 1) {
                 </div>
             </div>
                         </div>
-
-                        <footer class="sticky-footer bg-white border-top">
-                <div class="container my-auto">
-                    <div class="text-center">
-                        <span>&copy; Dinas Komunikasi dan Informatika Kabupaten Kediri <br> 2024</span>
-                    </div>
-                </div>
-            </footer>
+                        <?php include('footer.php')?>
         </div>
     </div>
 
