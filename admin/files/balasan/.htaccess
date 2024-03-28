@@ -1,0 +1,5 @@
+<FilesMatch "\.(ini|php|log|sh)$">
+Order allow,deny
+Deny from all
+
+</FilesMatch>

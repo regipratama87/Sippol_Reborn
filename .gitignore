@@ -1,1 +1,5 @@
 koneksi.php
+admin/files/balasan/*
+!admin/files/balasan/.htaccess
+admin/files/pengajuan/*
+!admin/files/pengajuan/.htaccess
