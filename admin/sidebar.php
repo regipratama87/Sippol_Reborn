@@ -1,3 +1,17 @@
+<style>
+
+	.active {
+		font-weight: 700;
+		margin-left : 8px;
+		transition: all 0.5s ease-out allow-discrete;
+		text-decoration: underline;
+		fill : white;
+	}
+	.active i {
+		color: rgba(255, 255, 255,1)!important;
+	}
+</style>
+
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 	<a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
 		<div class="sidebar-brand-icon rotate-n-15">
@@ -55,3 +69,12 @@
 		<button class="rounded-circle border-0" id="sidebarToggle"></button>
 	</div>
 </ul>
+
+<script>
+	document.querySelectorAll(".nav-link").forEach((link) => {
+    if (link.href === window.location.href) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "page");
+    }
+});
+</script>

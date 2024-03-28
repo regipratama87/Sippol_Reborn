@@ -126,7 +126,8 @@
 									<select id="tahun" name="tahun" class="form-control">
 										<?php
 										$current_year = date("Y");
-										for ($i = $current_year; $i >= $current_year - 10; $i--) {
+										$start_year = 2020;
+										for ($i = $current_year; $i >= $start_year; $i--) {
 											$selected = ($tahun == $i) ? 'selected' : '';
 											echo "<option value='$i' $selected>$i</option>";
 										}

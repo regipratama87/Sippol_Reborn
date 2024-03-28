@@ -51,7 +51,7 @@
 									<table id="dataTable" class="table table-striped">
 										<thead>
 											<tr>
-												<th data-orderable="false">No</th>
+												<th>No</th>
 												<th>Instansi</th>
 												<th>Alamat</th>
 												<th data-orderable="false">Action</th>
@@ -64,7 +64,7 @@
 												$query = "SELECT i.id_instansi as id_ins, i.nama_instansi as nama, i.alamat_instansi as alamat,  COUNT(DISTINCT u.id_user) AS jumlah 
 												FROM instansi i 
 												LEFT  JOIN user u ON i.id_instansi = u.id_instansi 
-												GROUP BY i.id_instansi, i.nama_instansi, i.alamat_instansi";
+												GROUP BY i.id_instansi, i.nama_instansi, i.alamat_instansi ORDER BY  nama_instansi asc";
 
 												
 												$result = mysqli_query($koneksi, $query);
@@ -200,7 +200,7 @@
 		<script>
 			$(document).ready(function() {
 			$('#dataTable').DataTable({
-				order : [1, "asc"],
+				order : [],
 			initComplete: function () {
 			this.api().columns().every( function () {
 			var column = this;

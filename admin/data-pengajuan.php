@@ -104,7 +104,7 @@
 												
 												$query = "SELECT p.*, i.nama_instansi
 												        FROM pengajuan p
-												        LEFT JOIN instansi i ON p.id_instansi = i.id_instansi";
+												        LEFT JOIN instansi i ON p.id_instansi = i.id_instansi ORDER BY id_pengajuan desc";
 												
 												$result = mysqli_query($koneksi, $query);
 												
@@ -116,7 +116,7 @@
 												    $no = 1;
 												    while ($row = mysqli_fetch_assoc($result)) {
 												        echo "<tr>";
-												        echo "<td>" .$row['id_pengajuan']. "</td>";
+												        echo "<td>" . $row['id_pengajuan'] . "</td>";
 												        echo "<td>" . $row['nama_instansi'] . "</td>";
 												
 												        echo "<td><a href='#' onclick=\"openPdfModal('" . $row['srt_pengajuan'] . "')\"> Lihat Berkas</a></td>";
@@ -241,7 +241,8 @@
 		<script>
 			$(document).ready(function() {
 				$('#dataTable').DataTable({	
-					order: [6,"desc"],
+					// order: [6,"desc"],
+					order: [],
 					initComplete: function () {
 			        this.api().columns().every( function () {
 			            var column = this;
