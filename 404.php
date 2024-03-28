@@ -330,7 +330,7 @@ if (stripos($currentPath, '/administrator') !== false) {
       <div class="number">4</div>
     </div>
 
-    <div class="text">Oops. halaman tidak ditemukan.</div>
+    <div class="text">Oops. halaman tidak ditemukan!</div>
     <a class="button" href="<?php echo $homePage; ?>">Homepage</a>
   </div>
 
@@ -339,7 +339,7 @@ if (stripos($currentPath, '/administrator') !== false) {
 						<div class="copyright my-auto" style="text-align: center;">
 							<p>&copy; Dinas Komunikasi dan Informatika Kabupaten Kediri <br>
               <?php
-								echo $row['title'];
+								echo "<strong>".$row['title']."</strong>";
 								mysqli_close($koneksi);
 							?> <br>2024
               </p>

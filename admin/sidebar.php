@@ -18,7 +18,7 @@
 			<i class="fas fa-laugh-wink"></i>
 		</div>
 		<div class="sidebar-brand-text mx-3">
-			<?php echo $title  ?>
+			<strong><?php echo $title  ?></strong>
 		</div>
 	</a>
 	<hr class="sidebar-divider my-0">

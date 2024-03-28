@@ -82,7 +82,7 @@ if (mysqli_num_rows($result) == 1) {
                 <form method="POST" action="handler-edit-profil.php">
                     <div class="form-group">
                         <label for="nama">Nama:</label>
-                        <input class="form-control" type="text" id="nama" name="nama" required value="<?php echo $nama; ?>">
+                        <input class="form-control" type="text" id="nama" name="nama" required value="<?php echo $nama; ?>" placeholder="Wajib Terisi">
                     </div>
                     <div class="form-group">
                         <label for="npm">NPM:</label>
@@ -94,11 +94,11 @@ if (mysqli_num_rows($result) == 1) {
                     </div>
                     <div class="form-group">
                         <label for="password">Password Baru:</label>
-                        <input class="form-control" type="password" id="password" name="password" placeholder="Isi jika ingin mengubah password...">
+                        <input class="form-control" type="password" id="password" name="password" placeholder="Isi jika ingin mengubah password">
                     </div>
                     <div class="form-group">
                         <label for="konfirmasi_password">Konfirmasi Password Baru:</label>
-                        <input class="form-control" type="password" id="konfirmasi_password" name="konfirmasi_password" placeholder="Harap isi konfirmasi password..">
+                        <input class="form-control" type="password" id="konfirmasi_password" name="konfirmasi_password" placeholder="Konfirmasi password baru">
                     </div>
                     <input type="submit" class="btn btn-sm bg-primary shadow text-white" value="Simpan Perubahan">
                     <a href="index.php" class="btn btn-sm btn-danger shadow-sm" >Kembali</a>
