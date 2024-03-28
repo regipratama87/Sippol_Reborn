@@ -59,14 +59,14 @@ var dayName = daysArray[day];
 			<img class="img-profile rounded-circle" src="../img/undraw_profile_2.svg">
 			</a>
 			<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown"> 
-			<a class="dropdown-item" href="profil.php">
-				<i class="fas fa-fw fa-user-circle mr-2 text-gray-400  "></i>
-				Profil</a>           
+			  <a class="dropdown-item" href="profil.php">
+				  <i class="fas fa-fw fa-user-circle mr-2 text-gray-400"></i>&nbsp;Profil
+        </a>           
 				<a class="dropdown-item" href="konfigurasi.php">
-				<i class="fas fa-fw fa-cogs mr-2 text-gray-400  "></i>
-				Konfigurasi</a>
+				  <i class="fas fa-fw fa-cogs mr-2 text-gray-400"></i>&nbsp;Konfigurasi
+        </a>
 				<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-				<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+				  <i class="fas fa-fw fa-sign-out-alt mr-2 text-gray-400"></i>&nbsp;Logout
 				</a>
 			</div>
 		</li>

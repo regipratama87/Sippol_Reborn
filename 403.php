@@ -293,11 +293,11 @@ footer {
 // Mendapatkan path saat ini
 $currentPath = $_SERVER['REQUEST_URI'];
 $domain = $_SERVER['HTTP_HOST'];
-if (strpos($currentPath, '/admin') !== false) {
-    // Jika path mengandung "/admin", maka tautan akan mengarah ke /admin/index.php
-    $homePage = "https://$domain/admin/index.php";
+if (stripos($currentPath, '/administrator') !== false) {
+    // Jika path mengandung "/administrator", maka tautan akan mengarah ke /administrator/index.php
+    $homePage = "https://$domain/administrator/index.php";
 } else {
-    // Jika tidak terdapat "/user" atau "/admin", maka tautan akan mengarah ke index.php secara default
+    // Jika tidak terdapat "/administrator", maka tautan akan mengarah ke index.php secara default
     $homePage = "https://$domain";
 }
 
@@ -330,17 +330,19 @@ if (strpos($currentPath, '/admin') !== false) {
       <div class="number">3</div>
     </div>
 
-    <div class="text">Oops. kamu tidak punya akses kesini!</div>
+    <div class="text">Oops. kamu tidak punya akses ke sini!</div>
     <a class="button" href="<?php echo $homePage; ?>">Homepage</a>
   </div>
 
   <footer>
 					<div class="container my-auto">
-						<div class="copyright text-center my-auto">
-							<span>Copyright &copy; <?php
+						<div class="copyright my-auto" style="text-align: center;">
+							<p>&copy; Dinas Komunikasi dan Informatika Kabupaten Kediri <br>
+              <?php
 								echo $row['title'];
 								mysqli_close($koneksi);
-								?> 2024</span>
+							?> <br>2024
+              </p>
 						</div>
 					</div>
 				</footer>

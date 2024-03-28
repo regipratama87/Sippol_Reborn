@@ -52,7 +52,7 @@
 					<div class="container-fluid">
 						<div class="my-3 bg-white rounded  border p-4">
 							<span class="h3 mb-3 text-gray-800 font-weight-bold">Konfigurasi</span>
-							<form method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>" class="mt-3">
+							<form method="POST" class="mt-3">
 								<?php include('template-alert.php'); ?>
 								<div class="form-group">
 									<label for="">Title : </label>
