@@ -74,7 +74,7 @@ $query_data = "SELECT presensi.*, user.nama AS user_nama, user.npm AS user_npm, 
                FROM presensi 
                INNER JOIN user ON presensi.id_user = user.id_user 
                INNER JOIN instansi ON user.id_instansi = instansi.id_instansi
-               WHERE user.username = '$username'";
+               WHERE user.username = '$username' ORDER BY presensi.data_tanggal DESC";
 $result_data = mysqli_query($koneksi, $query_data);
 if (!$result_data || mysqli_num_rows($result_data) === 0) {
 }
