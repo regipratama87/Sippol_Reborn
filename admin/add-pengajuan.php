@@ -71,12 +71,13 @@
 								<div class="form-group">
     <label for="tahun">Tahun:</label>
     <select id="tahun" class="form-control" name="tahun[]" required>
-        <?php
-        $current_year = date("Y");
-        for ($i = $current_year; $i >= $current_year - 10; $i--) {
-            echo "<option value='$i'>$i</option>";
-        }
-        ?>
+	<?php
+    $current_year = date("Y");
+    $start_year = 2020; // Mulai dari tahun 2020
+    for ($i = $current_year; $i >= $start_year; $i--) {
+        echo "<option value='$i'>$i</option>";
+    }
+?>
     </select>
 </div>
 
@@ -152,7 +153,8 @@
     '<select class="form-control" name="tahun[]" required>' +
     '<?php
     $current_year = date("Y");
-    for ($i = $current_year; $i >= $current_year - 10; $i--) {
+	$start_year = 2020;
+    for ($i = $current_year; $i >= $start_year; $i--) {
         echo "<option value=\'$i\'>$i</option>";
     }
     ?>' +

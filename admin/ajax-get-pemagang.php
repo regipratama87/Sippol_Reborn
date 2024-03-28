@@ -29,7 +29,7 @@ if(isset($_POST['asal'])) {
         }
         echo implode('<br>', $data); 
     } else {
-        echo "Data mahasiswa tidak ditemukan";
+        echo "Belum ada data pemagang pada instansi ini.    ";
     }
 
     // Menampilkan tabel jumlah pemagang berdasarkan tahun
@@ -54,10 +54,10 @@ if(isset($_POST['asal'])) {
         echo '</tbody>';
         echo '</table>';
     } else {
-        echo "Data jumlah pemagang tidak ditemukan";
+        // echo "Data jumlah pemagang tidak ditemukan";
     }
 } else {
-    echo "Permintaan tidak valid";
+    // echo "Permintaan tidak valid";
 }
 
 mysqli_close($koneksi);
