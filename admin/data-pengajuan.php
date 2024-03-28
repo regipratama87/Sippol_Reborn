@@ -116,7 +116,7 @@
 												    $no = 1;
 												    while ($row = mysqli_fetch_assoc($result)) {
 												        echo "<tr>";
-												        echo "<td>" . $row['id_pengajuan'] . "</td>";
+												        echo "<td>" . $no++ . "</td>";
 												        echo "<td>" . $row['nama_instansi'] . "</td>";
 												
 												        echo "<td><a href='#' onclick=\"openPdfModal('" . $row['srt_pengajuan'] . "')\"> Lihat Berkas</a></td>";
