@@ -96,10 +96,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="text-center">
                 <img src="img/logo-login.png" alt="" class="img-fluid">
                 </div>
-                <p class="lead text-center mt-3">Login to access your account.</p>
+                <p class="lead text-center mt-3">Login to access your account</p>
                 <?php
                 if (isset($error)) {
-                    echo '<div class="alert alert-danger border-0" role="alert"><b>Error!! </b>' . $error . '</div>';
+                    echo '<div class="alert alert-danger border-0" role="alert"><b>Gagal!</b><br>' . $error . '</div>';
                 }
                 ?>
 
