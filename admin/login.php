@@ -106,11 +106,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <form class="user" method="POST">
                                             <div class="form-group">
                     <label for="username" class="form-label font-weight-bold label-color"> Username <span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter username...">
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter Username" autofocus required>
                                             </div>
                                             <div class="form-group">
                     <label for="password" class="form-label font-weight-bold label-color"> Password <span class="text-danger">*</span></label>
-                                                <input type="password" class="form-control" name="password" placeholder="Enter password...">
+                                                <input type="password" class="form-control" name="password" placeholder="Enter Password" required>
                                             </div>
                                             <div class="text-center">
                                             <button type="submit" class="btn btn-primary btn-block rounded-pill">

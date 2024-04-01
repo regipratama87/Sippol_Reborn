@@ -337,12 +337,14 @@ if (stripos($currentPath, '/administrator') !== false) {
   <footer>
 					<div class="container my-auto">
 						<div class="copyright my-auto" style="text-align: center;">
-							<p>&copy; Dinas Komunikasi dan Informatika Kabupaten Kediri <br>
+              <p style="margin-top: 0; margin-bottom: .5rem;">&copy; 2024</p>
+              <p style="margin-top: 0; margin-bottom: .5rem;">
               <?php
-								echo "<strong>".$row['title']."</strong>";
+								echo "<strong>".$title."</strong>";
 								mysqli_close($koneksi);
-							?> <br>2024
+							?>
               </p>
+							<p style="margin-top: 0; margin-bottom: .5rem;">Dinas Komunikasi dan Informatika Kabupaten Kediri</p>
 						</div>
 					</div>
 				</footer>

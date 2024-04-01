@@ -69,7 +69,9 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
                             <?php
                                 require('../koneksi.php');
-                                $query = "SELECT COUNT(DISTINCT id_data) AS presensi_bulanan FROM presensi WHERE  MONTH(data_tanggal) = MONTH(CURDATE())";
+                                $query = "SELECT COUNT(DISTINCT id_data) AS presensi_bulanan FROM presensi 
+                                            WHERE MONTH(data_tanggal) = MONTH(CURDATE())
+                                            AND YEAR(data_tanggal) = YEAR(CURDATE())";
                                 
                                 $result = mysqli_query($koneksi, $query);
                                 $row = mysqli_fetch_assoc($result);
