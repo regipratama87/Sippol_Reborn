@@ -1,3 +1,4 @@
+.htaccess.dev
 koneksi.php
 admin/files/balasan/*
 !admin/files/balasan/.htaccess
